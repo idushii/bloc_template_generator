@@ -55,6 +55,11 @@
             <export-code class="code" :items="items" :model="model" :name-class="name"/>
           </template>
         </el-tab-pane>
+        <el-tab-pane label="Laravel / Model" name="laravel_model">
+          <template v-if="codeLang === 'laravel_model'">
+            <laravel-model class="code" :items="items" :name-class="name"/>
+          </template>
+        </el-tab-pane>
       </el-tabs>
     </div>
     <div v-else>
@@ -77,9 +82,11 @@ import RenderEnumCode from "@/views/ModelEditor/RenderEnumCode.vue";
 import RenderCodeTypeScript from "@/views/ModelEditor/RenderCodeTypeScript.vue";
 import RenderCodeElementTable from "@/views/ModelEditor/RenderCodeElementTable.vue";
 import ExportCode from "@/views/ModelEditor/ExportCode.vue";
+import LaravelModel from "@/views/ModelEditor/LaravelModel.vue";
 
 @Component({
   components: {
+    LaravelModel,
     RenderCodeElementTable,
     RenderCodeTypeScript,
     RenderEnumCode,
@@ -353,6 +360,10 @@ export default class ModelEditor extends Vue {
       }
     }
   }
+}
+
+#files {
+  display: none;
 }
 
 </style>
